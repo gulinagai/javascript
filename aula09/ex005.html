@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 95vw;
+            height: 95vh;
+            background-color: rgba(7, 7, 204, 0.836);
+            color: white;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            color: rgb(211, 230, 48);
+            padding: 5px;
+            line-height: 1.5em;
+            font-size: 1.5em;
+        }
+        div {
+            font-size: 1.5em;
+            padding: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar <strong>DOM</strong> em JavaScript</p>
+    <div id="clicar">Clique em mim</div>
+    <script>
+        var p1 = window.document.getElementsByTagName('p')[1]
+        window.document.write(p1.innerHTML)
+        window.document.getElementsByTagName('p')[1].style.color = 'green'
+        // ou
+        p1.style.color = 'green' // msm coisa escrito de uma forma mais fácil usando variável.
+        var corpo = window.document.body
+        corpo.style.background = 'gray' 
+        var titulo = window.document.getElementsByTagName('h1')[0]
+        titulo.style.color = 'rgb(156, 35, 35)'
+        window.document.querySelector('div#clicar').style.color = 'darkred'
+        // ou
+        var a = window.document.querySelector('div#clicar')
+        a.innerText = 'Mudei o texto pelo JavaScript'
+    </script>
+</body>
+</html>
