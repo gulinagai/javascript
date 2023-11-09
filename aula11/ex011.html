@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de identificação do local-país de vivência</title>
+</head>
+<body>
+    <h1>Sistema de identificação do local-país de vivência</h1>
+    <div style="display: inline-block">
+        <label for="paisstg">Qual é o país em que você vive atualmente?</label>
+        <input type="text" id="paisstg" name="paisstg" required>
+    </div>
+    <div style="display: inline-block">
+        <input id="teclaconfirma" type="submit" value="Confirmar">
+    </div>
+    <div id="res"></div>
+    <script>
+        var teclaconfirma = window.document.getElementById('teclaconfirma')
+        teclaconfirma.addEventListener('click', confirmoupais)
+        function confirmoupais() {
+            var paisstg = window.document.getElementById('paisstg').value
+            var res = window.document.querySelector('div#res')
+            res.innerHTML = `Seu país é ${paisstg}`
+            if(paisstg == 'Brasil' || paisstg == 'brasil') {
+                res.innerHTML += '<br>Você é Brasileiro!'
+            } else {
+                res.innerHTML += '<br>Você é Estrangeiro!'
+            }
+        }
+    </script>
+</body>
+</html>

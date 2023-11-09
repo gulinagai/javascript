@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Multas</title>
+</head>
+<body>
+    <h1>Sistema de Multa</h1>
+    <div>
+        <label for="vel">Velocidade do carro:</label>
+        <input type="number" id="vel" name="vel" minlength="0" maxlength="500" required> Km/h
+    </div>
+    <div>
+        <input type="submit" value="Confirmar"  onclick="confirma()">
+    </div>
+    <div id="res">
+    </div>
+<script>
+    function confirma() {
+        var res = window.document.getElementById('res')
+        var veltxt = window.document.getElementById('vel')
+        var velnumber = Number.parseFloat(veltxt.value)
+        if(velnumber > 60) {
+            res.innerHTML = `<br>Sua velocidade é de ${velnumber}Km/h, você está acima do permitido. Multado!`
+        } else {
+            res.innerHTML = `<br>Sua velocidade é de ${velnumber}Km/h, você está dentro da velocidade máxima permitida, parabéns!`
+        }
+        res.innerHTML += '<br><strong>Boa viagem!<strong>'
+    }
+</script>
+</body>
+</html>
