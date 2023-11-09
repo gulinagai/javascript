@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma em JavaScript</title>
+    <style>
+        form {
+            padding: 20px;
+        }
+        input[type='number'] {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+         <div>
+            <label for="n1">Digite um número:</label>
+            <input type="number" id="n1" name="n1"><br>
+        </div> 
+        <div>
+            <label for="n2">Digite outro número:</label>
+            <input type="number" id="n2" name="n2">
+        </div>
+        <div>
+            <input type="submit" value="Somar" onclick="soma()">
+            <input type="reset" value="Redefinir" onclick="redefinir()">
+        </div>
+        <div id="res">O resultado da soma</div>
+    <script>
+        function soma() {
+           var stringn1 = window.document.getElementById('n1')
+           var numbern1 = Number.parseFloat(stringn1.value)
+           var stringn2 = window.document.getElementById('n2')
+           var numbern2 = Number.parseFloat(stringn2.value)
+           var soma = numbern1 + numbern2
+           var res = window.document.getElementById('res')
+           //res.innerText = res.innerText + ' de ' + numbern1 + ' + ' + numbern2 + ' = ' + soma
+           res.innerText = `${res.innerText} de ${numbern1} + ${numbern2} = ${soma}`
+        }
+        function redefinir() {
+            window.document.getElementById('n1').value = 0
+            window.document.querySelector('input#n2').value = 0
+            window.document.getElementById('res').innerText = 'O resultado da soma'
+        }
+    </script>
+</body>
+</html>

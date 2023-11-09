@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+    <style>
+        body {
+            height: 96vh;
+            width: 96vw;
+            position: relative;
+        }
+        div#quad {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(121, 31, 121);
+            color: white;
+            height: 200px;
+            width: 200px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 1.4em;
+            
+
+        }
+    </style>
+</head>
+<body>
+    <div id="quad">Interaja.......</div>
+    <script>
+        var area = window.document.querySelector('div#quad')
+        area.addEventListener('click', clicou)
+        area.addEventListener('mouseenter', entrou)
+        area.addEventListener('mouseout', saiu)
+        area.addEventListener('mousedown', segurou)
+        area.addEventListener('mouseup', soltou)
+         
+        function clicou() {
+            area.innerText = 'Clicou!'
+            area.style.background = 'blue'
+        }
+        function entrou() {
+            area.innerText = 'Entrou!'
+            area.style.background = 'red'
+
+        }
+        function saiu() {
+            area.innerText = 'Saiu!'
+            area.style.background = 'rgb(121, 31, 121)'
+        }
+        function segurou() {
+            area.innerText = 'Segurou!'
+            area.style.background = 'darkgreen'
+        }
+        function soltou() {
+            area.innerText = 'Soltou!'
+        }
+    </script>
+</body>
+</html>
