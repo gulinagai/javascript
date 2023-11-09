@@ -23,11 +23,13 @@
             <input type="number" id="n2" name="n2">
         </div>
         <div>
-            <input type="submit" value="Somar" onclick="soma()">
-            <input type="reset" value="Redefinir" onclick="redefinir()">
+            <input id="botaosoma" type="submit" value="Somar">
+            <input id="botaored" type="reset" value="Redefinir">
         </div>
         <div id="res">O resultado da soma</div>
     <script>
+        window.document.getElementById('botaosoma').addEventListener('click', soma)
+        window.document.getElementById('botaored').addEventListener('click', redefinir)
         function soma() {
            var stringn1 = window.document.getElementById('n1')
            var numbern1 = Number.parseFloat(stringn1.value)
