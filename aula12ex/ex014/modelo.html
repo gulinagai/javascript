@@ -4,31 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo/style.css">
-    <title>Verificador de Idade</title>
+    <title>Hora do dia</title>
 </head>
-<body>
+<body onload="carregou()">
     <header>
-        <h1>Verificador de Idade</h1>
+        <h1>Hora o Dia</h1>
     </header>
     <main>
-        <div>
-            <label for="nasc">Ano de Nascimento:</label>
-            <input type="number" id="nasc" name="nasc" min="1900" max="2023" required>
+        <div id="paragrafo">
         </div>
-        <div>
-            Sexo:
-            <input type="radio" id="masc" name="sexo">
-            <label for="masc">Masculino</label>
-            <input type="radio" id="fem" name="sexo">
-            <label for="fem">Feminino</label>
+        <div id="containerimg">
+            <img id="manha" src="imagens/fotomanha.png" alt="Manhã">
+            <img id="tarde" src="imagens/fototarde.png" alt="Tarde">
+            <img id="noite" src="imagens/fotonoite.png" alt="Noite">
+            <img id="madrug" src="imagens/fotomadrugada.png" alt="Madrugada">
         </div>
-        <div>
-            <input type="submit" value="Verificar">
-        </div>
-        <p>Preencha os dados acima para ver o resultado!</p>
-        <div>
-            
-        </div>
+
     </main>
     <footer>
         <p>&copy; <em>Guli</em></p>

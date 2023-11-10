@@ -5,7 +5,6 @@
 body {
     height: 94vh;
     width: 96vw;
-    background-color: rgb(94, 134, 221);
     font-family: Arial, Helvetica, sans-serif;
 }
 header {
@@ -14,6 +13,7 @@ height: 100px;
 header h1 {
     text-align: center;
     margin: 50px;
+    color: white;
 }
 main {
     background-color: white;
@@ -24,9 +24,27 @@ main {
     border-radius: 10px;
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.377);
 }
-input[type=submit] {
-    padding: 3px;
-    font-size: 0.9em;
+div#paragrafo {
+    text-align: center;
+}
+div#containerimg {
+    text-align: center;
+}
+img#manha {
+    text-align: center;
+    display: none;
+}
+img#tarde {
+    text-align: center;
+    display: none;
+}
+img#noite {
+    text-align: center;
+    display: none;
+}
+img#madrug {
+    text-align: center;
+    display: none;
 }
 footer {
     
@@ -34,4 +52,5 @@ footer {
 footer p {
     padding: 20px;
     text-align: center;
+    color: white;
 }
