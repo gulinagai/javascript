@@ -24,9 +24,12 @@ main {
     border-radius: 10px;
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.377);
 }
-input[type=button] {
+input[type=submit] {
     padding: 3px;
     font-size: 0.9em;
+}
+footer {
+    
 }
 footer p {
     padding: 20px;
