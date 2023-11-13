@@ -1,0 +1,37 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+body {
+    height: 94vh;
+    width: 96vw;
+    background-color: rgb(94, 134, 221);
+    font-family: Arial, Helvetica, sans-serif;
+}
+header {
+height: 100px;
+}
+header h1 {
+    text-align: center;
+    margin: 50px;
+}
+main {
+    background-color: white;
+    max-width: 700px;
+    padding: 30px 15px 10px 15px;
+    margin: auto;
+    line-height: 2.4em;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.377);
+}
+input.cpdiv1, input#fina {
+    padding: 3px;
+    font-size: 0.9em;
+}
+footer {
+    
+}
+footer p {
+    padding: 20px;
+    text-align: center;
+}

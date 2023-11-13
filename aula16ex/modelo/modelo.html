@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo/style.css">
+    <title>Verificador de Idade</title>
+</head>
+<body>
+    <header>
+        <h1>Analisador de Números</h1>
+    </header>
+    <main>
+        <div>
+            <label for="num">Número (entre 0 e 100):</label>
+            <input type="number" id="num" name="num" class="cpdiv1">
+            <input type="button" value="Adicionar" onclick="adicionar()" class="cpdiv1">
+        </div>
+        <div>
+            <select name="list" id="list" size="6"></select>
+        </div>
+        <div>
+            <input id="fina" type="button" value="Finalizar" onclick="finalizar()">
+        </div>
+        <div id="res">
+            
+        </div>
+    </main>
+    <footer>
+        <p>&copy; <em>Guli</em></p>
+    </footer>
+    <script src="script/script.js"></script>
+</body>
+</html>
