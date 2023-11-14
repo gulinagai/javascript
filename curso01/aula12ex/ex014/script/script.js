@@ -1,6 +1,7 @@
 function carregou() {
 var agora = new Date()
-var horaatual = agora.getHours()
+//var horaatual = agora.getHours()
+var horaatual = 6
 window.document.getElementById('paragrafo').innerText = `Agora são ${horaatual} horas.`
 if(horaatual >= 6 && horaatual <= 12) {
     window.document.getElementById('manha').style.display = 'inline-block'
