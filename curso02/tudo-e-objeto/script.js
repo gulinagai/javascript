@@ -17,4 +17,14 @@ window.document.getElementsByTagName('p')[0].innerHTML = 'tchau'
 // busque na web um objeto (método) capaz de interagir com o clipboard.
 // clipboard é a parte do seu computador que lida com o CTRL + C e CTRL + V
 
-window.document.
+var botao = window.document.querySelector('#botao')
+botao.addEventListener('click', copiar)
+function copiar() {
+var digitar = window.document.querySelector('#digitar')
+digitar.select()
+digitar.setSelectionRange(0, 99999)
+
+navigator.clipboard.writeText(digitar.value) // copiando texto dentro do campo
+
+alert('Texto copiado!')
+}
