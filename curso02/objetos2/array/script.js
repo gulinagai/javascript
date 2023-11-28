@@ -1,48 +1,69 @@
-const instrumentos = ['Guitarra', 'Baixo', 'Violão']
-const precos = [
-    49,
-    99,
-    69,
-    89
-]
+const comidas = ['Pizza', 'Frango', 'Carne', 'Macarrão']
+// Remova o primeiro valor de comidas e coloque em uma variável
 
-const dados = [new String('oi'), ['Carro', 'Portas', {cor: 'Azul', preco: 2008}], function andar(nome){ console.log(nome)}]
+let comidaremovida = comidas.shift()
+console.log(comidaremovida)
+console.log(comidas)
 
-const newstring = new String('oi')
+// Remova o último valor de comidas e coloque em uma variável
 
-const stringarray = ['o', 'i']
+comidaremovida = comidas.pop()
+console.log(comidaremovida)
+console.log(comidas)
 
+// Adicione 'Arroz' ao final da array
 
-function Seila(nome, sobrenome, idade){
-    this.nome = nome
-    this.sobrenome = sobrenome
-    this.idade = idade
-}
+comidas.push('Arroz')
+console.log(comidas)
 
-const gu = new Seila('gustavo', 'nagai', 24)
+// Adicione Peixe e 'Batata' ao início da array
 
-const novoarray = new Array('pão', 'mortadela', 'carne')
+comidas.unshift('Peixe', 'Batata')
+console.log(comidas)
 
+const estudantes = ['Márcio', 'Brenda', 'Joana', 'Klever', 'Julia']
+// Arrume os estudantes em ordem alfabética
 
-const novoobj = new Object({ chave1: 'aham', chave2: 'vdd', chave3: 'isso ai'})
+estudantes.sort()
+console.log(estudantes)
 
-const carros = ['Mazda', 'Viper', 'Paganni']
-console.log(carros.unshift('Supra'))
+// Inverta a ordem dos estudantes
 
+estudantes.reverse()
+console.log(estudantes)
+
+// Verifique se Joana faz parte dos estudantes
+
+console.log(estudantes.includes('Joana'))
+
+// Verifique se Juliana faz parte dos estudantes
+
+console.log(estudantes.includes('Juliana'))
+
+let html = '<section><div>Sobre</div><div>Produtos</div><div>Contato</div></section>'
+
+// Substitua section por ul e div por li,
+// utilizando split e join
+
+let arraymodif = html.split('section')
+arraymodif = arraymodif.join('ul')
+arraymodif = arraymodif.split('div')
+arraymodif = arraymodif.join('li')
+console.log(arraymodif)
+
+const carros = ['Ford', 'Fiat', 'VW', 'Honda']
+// Remova o último carro, mas antes de remover
+// salve o array original em outra variável
+
+const carrosclone = carros.slice()
+console.log(carrosclone)
+
+carros.pop()
 console.log(carros)
 
-console.log(carros.push('Corvette', 'Audi'))
-
-console.log(carros)
-
-console.log(carros.shift())
-
-console.log(carros)
-
-console.log(carros.pop())
-
-console.log(carros)
-
-console.log(carros.reverse())
+carros.forEach((item, index, array)=>{
+    array[index] = 'oi'
+    console.log(item)
+})
 
 console.log(carros)
