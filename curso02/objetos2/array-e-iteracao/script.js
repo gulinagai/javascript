@@ -1,131 +1,87 @@
-const games = [
-    'lol',
-    'grand chase',
-    'pokémon emerald',
-    'zelda'
-]
+// Selecione cada curso e retorne uma array
+// com objetos contendo o título, descricao,
+// aulas e horas de cada curso
 
-games.forEach((item, index, array)=>{
-    console.log(item)
-    item = 'pão'
-    console.log(item.toUpperCase())
-    console.log(index)
-    // array[index] = 'pão'
+const nlcursos = document.querySelectorAll('.curso')
+arraycursos = Array.from(nlcursos)
+// console.log(arraycursos)
+
+const arraynova = arraycursos.reduce((ac, item, index)=>{
+      ac[index] = {
+            titulo: item.children[0].innerHTML,
+            descricao: item.children[1].innerHTML,
+            aulas: document.querySelector('.aulas').innerHTML = 20,
+            horas: document.querySelector('.horas').innerHTML = 15
+                  }
+      return ac
+}, [])
+
+console.log(arraynova)
+
+const arraynovamap = arraycursos.map((item, index)=>{
+    return item[index] = {
+        titulo: item.children[0].innerHTML,
+        descricao: item.children[1].innerHTML,
+        aulas: document.querySelector('.aulas').innerHTML = 20,
+        horas: document.querySelector('.horas').innerHTML = 15
+              }
 })
-console.log(games)
+console.log(arraynovamap)
 
-const li = document.querySelectorAll('li')
-const liarray = Array.from(li)
 
-console.log(liarray.map((item)=>{
-     item.classList.add('ativo')
-    return item
-}))
+// Retorne uma lista com os números maiores que 100
 
-const ul = document.querySelectorAll('ul')
+const numeros = [3, 44, 333, 23, 122, 322, 33]
 
-const arraycopiaincrementada = games.map((item)=>{
-    item = item + ' é o jogo do ano,'
-   return item + ' é bom'
+const maiorque100 = numeros.filter((item)=>{
+    return item > 100
 })
 
-console.log(arraycopiaincrementada)
+console.log(maiorque100)
 
-const numeros = [4, 16, 20, 2, 5]
+// Verifique se Baixo faz parte
+// da lista de instrumentos e retorne true
 
-const arraynumerosmult = numeros.map((item)=>{
-    return item * 2
+const instrumentos = ['Guitarra', 'Baixo', 'Bateria', 'Teclado']
+
+const tembaixoporsome = instrumentos.some((item)=>{
+    return item === 'Baixo'
 })
+console.log(tembaixoporsome)
 
-console.log(arraynumerosmult)
+// ou
 
-const aula = [
+const tembaixoporincludes = instrumentos.includes('Baixo')
+
+console.log(tembaixoporincludes)
+
+// Retorne o valor total das compras
+const compras = [
     {
-        materia: 'HTML1',
-        aulasnasem: 20,
+        item: 'Banana',
+        preco: 'R$ 4,99'
     },
     {
-        materia: 'HTML2',
-        aulasnasem: 20,
+        item: 'Ovo',
+        preco: 'R$ 2,99'
     },
     {
-        materia: 'CSS1',
-        aulasnasem: 10,
+        item: 'Carne',
+        preco: 'R$ 25,49'
     },
     {
-        materia: 'JS1',
-        aulasnasem: 10,
+        item: 'Refrigerante',
+        preco: 'R$ 5,35'
+    },
+    {
+        item: 'Queijo',
+        preco: 'R$ 10,60'
     }
 ]
 
-console.log(aula.map( item => item.aulasnasem))
+const totalcompra = compras.reduce((ac, item)=>{
+    let precolimpo = +item.preco.slice(3).replace(',', '.')
+    return ac + precolimpo
+}, 0)
 
-function mudaraulasnasem (item){
-    return item.materia
-}
-
-const novaarray = aula.map(mudaraulasnasem)
-
-console.log(novaarray)
-
-const materiaestring = function (item) {
-      return item.materia + ' é difícil'
-}
-
-const novaarray2 = aula.map(materiaestring)
-
-console.log(novaarray2)
-
-const numeros2 = [2, 24, 13, 7]
-
-const totalsoma = numeros2.reduce((acumulador, item)=>{ 
-    console.log(acumulador) 
-    return acumulador + item
-})
-console.log(totalsoma)
-
-const maiorvalor = numeros2.reduce((acumulador, item)=>{
-    return item > acumulador ? item : acumulador
-}, numeros2[0])
-
-console.log(maiorvalor)
-
-const novoobjacumul = aula.reduce((ac,item,index)=>{
-    ac[index] = item.materia
-    return ac
-}, {})
-
-console.log(novoobjacumul) 
-
-const frutas = ['Banana', 'Maçã', 'Uva']
-const stringleft = frutas.reduce((ac, item)=>{
-    return `${ac} ${item}` 
-})
-
-console.log(stringleft)
-
-const stringright = frutas.reduceRight((ac, item)=>{
-    return `${ac} ${item}`
-})
-
-console.log(stringright)
-
-const temuva = frutas.some((item)=>{
-    return item === 'Uva'
-})
-
-console.log(temuva)
-
-const tudostring = frutas.every((item)=>{
-    return item
-})
-
-console.log(tudostring)
-
-const numero = [34, 48, 232, 22]
-
-const temmenorque30 = numero.some((item)=>{
-    return item < 30
-})
-
-console.log(temmenorque30)
+console.log(`Total: ${totalcompra.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`)
