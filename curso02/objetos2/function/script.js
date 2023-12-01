@@ -1,90 +1,79 @@
-// const funcao = function areaquadrado(){
-//     console.log('oi')
-// }
+// Retorne a soma total de caracteres dos
+// parágrafos acima utilizando reduce
 
-// const oi = 'oi'
+const p = document.querySelectorAll('p')
+const totalcaractp = Array.prototype.reduce.call(p, (ac, item)=>{
+    return ac + item.innerText.length
+}, 0)
+console.log(totalcaractp)
 
+// Crie uma função que retorne novos elementos
+// html, com os seguintes parâmetros
+// tag, classe e conteúdo.
 
-// const newst = new String('oi')
-
-// const newnumb = new Number(22)
-
-// const newbool = new Boolean(true)
-
-// const newfunc = new Function(function area(){
-//     return 2 * 2
-// })
-
-// const newarray = new Array()
-
-// const newobj = new Object()
-
-// const eu = {
-//     nome: 'Gustavo',
-//     sobrenome: 'Nagai',
-//     idade: 24
-// }
-
-// const amor = {
-//     nome: 'Hanna',
-//     sobrenome: 'Hirotuca',
-//     idade: 19
-// }
-
-// function retornareu(){
-//     const msg = `Me chamo ${this.nome} ${this.sobrenome}, e tenho ${this.idade} anos.`
-//     console.log(msg)
-//     return msg
-// }
-
-// console.log(retornareu.call(eu))
-
-// const role = [
-//     'salmão',
-//     21,
-//     'dachô'
-// ]
-
-// const role2 = [
-//     'batata frita',
-//     19,
-//     'minha casa'
-// ]
-
-// role.forEach.call(role2, function(item, index, array) {
-//     console.log(item)
-// })
-
-function Dom(seletor){
-    this.elemento = document.querySelector(seletor)
+function retornohtml (elementonovo){
+    const elemnovo = document.createElement(elementonovo)
+    elemnovo.classList.add(this.classe)
+    elemnovo.innerHTML = this.conteudo
+    const htmlel = window.document.body.appendChild(elemnovo)
+    return `${elemnovo.tagName}, ${elemnovo.className}, ${elemnovo.innerHTML}`
 }
 
-Dom.prototype.adicionarclasse = function(classe){
-    this.elemento.classList.add(classe)
+console.log(retornohtml('li'))
+
+//outro jeito
+
+function criarelemento (tagg, classee, conteudoo){
+    const elementonovo = document.createElement(tagg)
+    elementonovo.classList.add(classee)
+    elementonovo.innerHTML = conteudoo
+    return elementonovo
+}
+const h1 = {
+    classe: 'título',
+    conteudo: 'oi eu sou o gustavo'
 }
 
-const objdom = new Dom('ul')
-const objdom2 = new Dom('li')
-// esse aqui debaixo será o novo this no método criado para o Dom.prototype
-const li = {
-    elemento: document.querySelector('li')
-}
-// objdom.adicionarclasse.call(li, 'ativo')
-// outra forma:
-Dom.prototype.adicionarclasse.call(li, 'ativo')
+// const criandoh1 = criarelemento.call(h1)
 
-Array.prototype.mostrarthis = function(){
-    console.log(this)
-}
+// console.log(criandoh1)
 
-const comida = [
-    'temaki',
-    'macarrão com salsicha',
-    'natô'
-]
+console.log(criarelemento('h2', 'blabla', 'somos todos iguais'))
 
-console.log(Array.prototype.pop.call(comida))
+// Crie uma nova função utilizando  anterior como base
+// essa função dever sempre criar h1 com a
+// classe título. Porém o parâmetro conteudo continuará dinâmico
 
-Array.prototype.mostrarthis.call(comida)
-comida
-console.log(comida)
+
+console.log(retornohtml.call(h1, 'h1'))
+
+//outro jeito (só o parâmetro conteudo é dinâmico)
+
+const h1novo = criarelemento.bind(null, 'h1', 'título')
+console.log(h1novo('sdadaw'))
+
+
+
+
+
+
+
+
+
+
+
+
+// function criarh1 (texto){
+//     const novoh1 = document.createElement('h1')
+//     novoh1.classList.add('titulo')
+//     novoh1.innerHTML = texto
+//     document.body.appendChild(novoh1)
+//     return `Elemento criado: ${novoh1}, classes: ${novoh1.classList}, conteúdo: ${novoh1.innerHTML}`
+// }
+// const h1criado = criarh1.call(null,'oi eu sou o gustavo')
+// console.log(h1criado)
+
+
+
+
+

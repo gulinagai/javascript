@@ -1,151 +1,136 @@
-const games = [
-    'lol',
-    'grand chase',
-    'pokémon emerald',
-    'zelda'
-]
+// const funcao = function areaquadrado(){
+//     console.log('oi')
+// }
 
-games.forEach((item, index, array)=>{
-    console.log(item)
-    item = 'pão'
-    console.log(item.toUpperCase())
-    console.log(index)
-    // array[index] = 'pão'
-})
-console.log(games)
+// const oi = 'oi'
 
-const li = document.querySelectorAll('li')
-const liarray = Array.from(li)
 
-console.log(liarray.map((item)=>{
-     item.classList.add('ativo')
-    return item
-}))
+// const newst = new String('oi')
 
-const ul = document.querySelectorAll('ul')
+// const newnumb = new Number(22)
 
-const arraycopiaincrementada = games.map((item)=>{
-    item = item + ' é o jogo do ano,'
-   return item + ' é bom'
-})
+// const newbool = new Boolean(true)
 
-console.log(arraycopiaincrementada)
+// const newfunc = new Function(function area(){
+//     return 2 * 2
+// })
 
-const numeros = [4, 16, 20, 2, 5]
+// const newarray = new Array()
 
-const arraynumerosmult = numeros.map((item)=>{
-    return item * 2
-})
+// const newobj = new Object()
 
-console.log(arraynumerosmult)
+// const eu = {
+//     nome: 'Gustavo',
+//     sobrenome: 'Nagai',
+//     idade: 24
+// }
 
-const aula = [
-    {
-        materia: 'HTML1',
-        aulasnasem: 20,
-    },
-    {
-        materia: 'HTML2',
-        aulasnasem: 20,
-    },
-    {
-        materia: 'CSS1',
-        aulasnasem: 10,
-    },
-    {
-        materia: 'JS1',
-        aulasnasem: 10,
-    }
-]
+// const amor = {
+//     nome: 'Hanna',
+//     sobrenome: 'Hirotuca',
+//     idade: 19
+// }
 
-console.log(aula.map( item => item.aulasnasem))
+// function retornareu(){
+//     const msg = `Me chamo ${this.nome} ${this.sobrenome}, e tenho ${this.idade} anos.`
+//     console.log(msg)
+//     return msg
+// }
 
-function mudaraulasnasem (item){
-    return item.materia
+// console.log(retornareu.call(eu))
+
+// const role = [
+//     'salmão',
+//     21,
+//     'dachô'
+// ]
+
+// const role2 = [
+//     'batata frita',
+//     19,
+//     'minha casa'
+// ]
+
+// role.forEach.call(role2, function(item, index, array) {
+//     console.log(item)
+// })
+
+function Dom(seletor){
+    this.elemento = document.querySelector(seletor)
 }
 
-const novaarray = aula.map(mudaraulasnasem)
-
-console.log(novaarray)
-
-const materiaestring = function (item) {
-      return item.materia + ' é difícil'
+Dom.prototype.adicionarclasse = function(classe){
+    this.elemento.classList.add(classe)
 }
 
-const novaarray2 = aula.map(materiaestring)
+const objdom = new Dom('ul')
+const objdom2 = new Dom('li')
+// esse aqui debaixo será o novo this no método criado para o Dom.prototype
+const li = {
+    elemento: document.querySelector('li')
+}
+// objdom.adicionarclasse.call(li, 'ativo')
+// outra forma:
+Dom.prototype.adicionarclasse.call(li, 'ativo')
 
-console.log(novaarray2)
+Array.prototype.mostrarthis = function(){
+    console.log(this)
+}
 
-const numeros2 = [2, 24, 13, 7]
+const comida = [
+    'temaki',
+    'macarrão com salsicha',
+    'natô'
+]
 
-const totalsoma = numeros2.reduce((acumulador, item)=>{ 
-    console.log(acumulador) 
-    return acumulador + item
-})
-console.log(totalsoma)
+console.log(Array.prototype.pop.call(comida))
 
-const maiorvalor = numeros2.reduce((acumulador, item)=>{
-    return item > acumulador ? item : acumulador
-}, numeros2[0])
+Array.prototype.mostrarthis.call(comida)
+// console.log(comida)
+comida.mostrarthis()
 
-console.log(maiorvalor)
+const lis = document.querySelectorAll('li')
 
-const novoobjacumul = aula.reduce((ac,item,index)=>{
-    ac[index] = item.materia
-    return ac
-}, {})
-
-console.log(novoobjacumul) 
-
-const frutas = ['Banana', 'Maçã', 'Uva']
-const stringleft = frutas.reduce((ac, item)=>{
-    return `${ac} ${item}` 
-})
-
-console.log(stringleft)
-
-const stringright = frutas.reduceRight((ac, item)=>{
-    return `${ac} ${item}`
+const filtro = Array.prototype.filter.call(lis, (item)=>{
+    return item.classList.contains('ativo')
 })
 
-console.log(stringright)
+console.log(filtro)
 
-const temuva = frutas.some((item)=>{
-    return item === 'Uva'
-})
+numeros = [2, 23, 42, 24, 524, 1236, 42, 5]
+const maiornumero = Math.max.apply(null, numeros)
+console.log(maiornumero)
 
-console.log(temuva)
+function Personagem(nome, genero, cabelo, arma){
+    this.nome = nome
+    this.genero = genero
+    this.cabelo = cabelo
+    this.arma = arma 
+}
+const kat = new Personagem('Katarina', 'Feminino', 'Ruiva', 'Adaga')
+console.log(kat)
 
-const tudostring = frutas.every((item)=>{
-    return item
-})
+const vayne = {
+    nome: 'Vayne',
+    genero: 'Feminino',
+    cabelo: 'Preto',
+    arma: 'Besta'
+}
 
-console.log(tudostring)
+Personagem.prototype.frase = function(){
+    console.log(`A ${this.nome} usa uma ${this.arma}`)
+}
+kat.frase()
+kat.frase.call(vayne)
+const a = kat.frase.bind(vayne)
+a()
 
-const numero = [34, 48, 232, 22]
+function calcularimc(peso, altura){
+    return peso / (altura * altura)
+}
 
-const temmenorque30 = numero.some((item)=>{
-    return item < 30
-})
+const resimc = calcularimc(80, 1.8)
+console.log(resimc)
 
-console.log(temmenorque30)
-
-const retornauva = frutas.find((item)=>{
-    return item === 'Uva'
-})
-
-console.log(retornauva)
-
-const retornaindex = frutas.findIndex((item)=>{
-    return item === 'Uva'
-})
-
-console.log(retornaindex)
-
-const variascoisas = ['Banana', 'Maçã', undefined, '', 'Melão', '', 'Abacaxi', null]
-
-const sofrutas = variascoisas.filter((item)=>{
-    return item
-})
-
-console.log(sofrutas)
+const resimc2 = calcularimc.bind(null, 80)
+console.log(resimc2(1.8))
