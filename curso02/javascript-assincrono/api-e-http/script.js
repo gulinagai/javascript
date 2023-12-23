@@ -6,4 +6,14 @@ fetch('https://pokeapi.co/api/v2/pokemon/')
     console.log(bodyJSON)
 })
 
-fetch()
+fetch('./arquivo.json', {
+    method: 'HEAD',
+    // method: 'POST',
+    // body: {
+    //     "nome": "Metagross",
+    //     "tipo": "Aço/Psíquico"
+    // }
+})
+.then(response => {
+     response.headers.forEach(console.log)  
+})
