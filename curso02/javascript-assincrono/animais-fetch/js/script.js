@@ -6,8 +6,9 @@ import iniciarmodal from './modules/modal.js'
 import iniciartooltip from './modules/tooltip.js'
 import iniciarDropdownMenu from './modules/dropdown-menu.js'
 import iniciarMenuMobile from './modules/menu-mobile.js'
-import iniciarAnimaNumeros from './modules/anima-numeros.js'
 import iniciarFuncionamento from './modules/funcionamento.js'
+import iniciarFetchAnimais from './modules/fetch-animais.js'
+import iniciarFetchBitcoin from './modules/fetch-bitcoin.js'
 
 initScrollSuave()
 animacaodoscroll()
@@ -17,6 +18,6 @@ iniciarmodal()
 iniciartooltip()
 iniciarDropdownMenu()
 iniciarMenuMobile()
-iniciarAnimaNumeros()
 iniciarFuncionamento()
+iniciarFetchAnimais()
 
