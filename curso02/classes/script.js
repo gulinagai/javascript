@@ -48,7 +48,7 @@ class BotaoClasse {
         targetElement.appendChild(this.element())
     }
     // adicionando método também diretamente no construtor, porém este só pode ser acessado diretamente pelo construtor, não é copiado para o objeto. Deve ser acessado como BotaoClasse.metodo()
-    
+
     static metodo(){
         return `Método acionado!`
     }
@@ -66,3 +66,4 @@ console.log(botaoVerde.element())
 console.log(botaoVerde.appendTo('body'))
 
 console.log(botaoVerde)
+     
