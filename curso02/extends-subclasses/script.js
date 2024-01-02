@@ -17,6 +17,9 @@ class Moto extends Veiculo {
    frear(){
       return `${this.nome} freou`
    }
+   acelerar(){
+      console.log(super.acelerar() + ' muito')
+   }
 }
 
 const carro = new Veiculo(4)
