@@ -1,42 +1,54 @@
-function createButton(text){
-    // em uma Factory Function os métodos colocados dessa forma abaixo ficam no próprio objeto, ou seja, são copiados, e não são do protótipo
-    function element(){
-        const newButton = document.createElement('button')
-        newButton.innerText = text
-        return newButton
+function $$(selectedElements) {
+    const elements = document.querySelectorAll(selectedElements)
+    function hide(){
+        elements.forEach((element)=>{
+            element.style.display = 'none'
+        })
+        // retornar a própria Factory Function permite que eu utilize outro método já em sequência do método que foi utilizado, fazendo um encadeamento de métodos/propriedades
+        // this = $$(selectedElements)
+        return this
     }
-    // precisa retornar um objeto!
-    // aqui embaixo usei Ice Factory (Object.freeze no objeto retornado)
-    return Object.freeze({
-        text: text,
-        element: element
-    })
-}
-// usando Factory Function, não precisa da palavra chave 'new' para criar o novo objeto.
-
-
-
-const ComprarButton = createButton('Comprar')
-console.log(ComprarButton)
-
-ComprarButton.text = 'mudei'
-console.log(ComprarButton)
-console.log(ComprarButton.element())
-
-const VenderButton = createButton('Vender')
-console.log(VenderButton)
-
-console.log(ComprarButton.element())
-
-console.log(VenderButton.element())
-// usando Função Construtora sem usar o 'new' em const:
-
-function Game(nome){
-    if(!(this instanceof Game)){
-        return new Game(nome)
+    function show(){
+        elements.forEach((element)=>{
+            element.style.display = 'initial'
+        })
+        return this
     }
-    this.nome = nome
+    function on(onEvent, callback){
+        elements.forEach((element)=>{
+            element.addEventListener(onEvent, callback)
+        })
+        return this
+    }
+    function addClass(className){
+        elements.forEach((element)=>{
+            element.classList.add(className)
+        })
+        return this
+    }
+    function removeClass(className){
+        elements.forEach((element)=>{
+            element.classList.remove(className)
+        })
+        return this
+    }
+    return {
+        elements,
+        hide,
+        show,
+        on,
+        addClass,
+        removeClass
+    }
 }
 
-const lol = Game('League of Legends')
-console.log(lol)
+const btns = $$('button')
+// console.log(btns.elements)
+console.log(btns.hide().show())
+
+function handleClick(event){
+    console.log(event.target)
+    btns.addClass('ativo')
+}
+
+btns.on('click', handleClick)
