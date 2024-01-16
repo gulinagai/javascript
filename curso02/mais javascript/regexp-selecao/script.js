@@ -162,9 +162,45 @@ console.log('Javascript e Java não são a mesma coisa!'.replace(/\bJava\b/, 'X'
 
 console.log('jJavascript e Java não são mesma coisa!'.replace(/\BJava\B/, 'x'))
 
+// Anchor Beginning ^
+// Com o ^ é informado que a busca deve ser feito no início da linha (diferente de Negar, não se utiliza dentro de uma classe)
 
+console.log(`gulifiree@gmail.com
+gulifire@hotmail.com`.replace(/^\w+/g, 'oi'))
 
+// Anchor End $
+// Com o $ é possível informar que a busca deve ser iniciada no final da linha.
+// Caso haja várias linhas, só selecionará da última linha:
 
+console.log(`gulifiree@gmail.com
+gulifire@hotmail.com`.replace(/\w+$/g, 'oi'))
+
+// Flag m
+// A flag m(multilines) seleciona todas as linhas disponíveis, ela é muito útil se utilizada juntamente ao Anchor Beginning ^ ou ao Anchor End $
+
+console.log(`gulifiree@gmail.com
+gulifire@hotmail.com`.replace(/^\w+/gm, 'oi'))
+
+console.log(`gulifiree@gmail.com
+gulifire@hotmail.com`.replace(/\w+$/gm, 'oi'))
+
+console.log(`gulifiree@gmail.com
+gulifire@hotmail.com`.replace(/^\w+|\w+$/gm, 'oi'))
+
+// outra letra especial:
+// Line Feed \n:
+// o \n irá selecionar o final de uma linha quando criamos uma nova, ou seja,
+// o \n = enter do teclado
+
+console.log(`gulifiree@gmail.com
+gulifire@hotmail.com`.replace(/\n/g, '---'))
+
+// Unicode \u:
+// o \u irá selecionar o respectivo caractere unicode com base no código que for passado dessa forma: \uXXXX. 
+// Por exemplo, o unicode @ possui o código 0040 então basta passar \u0040
+
+console.log(`gulifiree@gmail.com
+gulifire@hotmail.com`.replace(/\u0040/g, '&'))
 
 
 
