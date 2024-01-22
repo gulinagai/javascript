@@ -59,3 +59,69 @@ let regexpResultado
     while((regexpResultado = regexExemplo2.exec(frase2)) !== null){
         console.log(regexpResultado[0])
     }
+
+// Métodos de string passando regexp:
+
+// MÉTODO 'string'.match(regexp)
+// A presença da flag g quando passa o .match() muda o que é retornado.
+
+const fraseString = 'JavaScript, TypeScript e CoffeScript'
+
+// com flag g:
+const regexpComG = /\w{2,}/g
+
+console.log(fraseString.match(regexpComG))
+
+// sem flag g:
+const regexpSemG = /\w{2,}/
+
+console.log(fraseString.match(regexpSemG)) // retorna uma array parecida com a array retornada de regexp.exec('string')
+
+// se não der match nenhum, é retornado null.
+
+// MÉTODO 'string'.split(regexp)
+
+const fraseString2 = 'JavaScript, TypeScript, CoffeScript'
+
+const regexpSplit = /Script,? ?/g
+
+console.log(fraseString2.split(regexpSplit))
+
+// MÉTODO 'string'.replace(regexp, 'oque vai substituir')
+
+// exemplo sem função de callback no argumento:
+
+const tags = `
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+`
+// sem regexp (só muda 1, o primeiro ul)
+console.log(tags.replace('ul', 'div'))
+
+// com regexp:
+console.log(tags.replace(/(?<=<\/?)\w+/g, 'div'))
+
+
+// exemplo com função de callback no argumento:
+
+const regexpExemploCallback = /(\w+)(@[\w]+)/g
+
+const emails = `joao@homail.com.br
+    marta@ggmail.com.br
+    bruna@oulook.com.br
+`
+
+emails.replace(regexpExemploCallback, function(...args){
+    console.log(args)
+})
+
+// Captura e Grupos de captura:
+
+const emails2 = `
+    empresa@email.com
+    contato@email.com
+    suporte@email.com
+`
+console.log(emails2.replace(/(\w+@)\w+(.\w+)/g, '$1gmail$2'))
