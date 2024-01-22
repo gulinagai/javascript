@@ -112,10 +112,28 @@ const emails = `joao@homail.com.br
     marta@ggmail.com.br
     bruna@oulook.com.br
 `
+// passar uma função como segundo argumento de replace(), eu posso passar ...args (ou qualquer outro nome) e manipular esses argumentos em forma de array.
 
-emails.replace(regexpExemploCallback, function(...args){
+// aparecerá uma array para CADA seleção completa de regexp!
+
+// Na posição 0 da array terá a seleção completa da regexp;
+// Na posição 1 terá o primeiro grupo de captura;
+// nas da frente terão os demais grupos de captura;
+// após isso, terá o index
+// e por último terá a string completa.
+
+const resultado = emails.replace(regexpExemploCallback, function(...args){
     console.log(args)
+    if(args[2] === '@homail'){
+        return `${args[1]}@hotmail`
+    } else if(args[2] === '@ggmail'){
+        return `${args[1]}@gmail`
+    } else if(args[2] === '@oulook'){
+        return `${args[1]}@outlook`
+    }
 })
+
+console.log(resultado)
 
 // Captura e Grupos de captura:
 
