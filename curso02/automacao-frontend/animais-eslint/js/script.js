@@ -20,4 +20,4 @@ iniciarDropdownMenu()
 iniciarMenuMobile()
 iniciarFuncionamento()
 iniciarFetchAnimais()
-
+iniciarFetchBitcoin()
