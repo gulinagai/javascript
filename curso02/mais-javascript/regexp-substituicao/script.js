@@ -35,3 +35,7 @@ console.log('2em, 4px, 5%, 2px, 1px'.replace(/\d(?=px)/g, 'x')) // selecionou to
 // é o contrário. Faz a seleção dos itens que não possuirem o padrão passado dentro de (?!) à sua frente
 
 console.log('2em, 4px, 5%, 2px, 1px'.replace(/\d(?!px)/g, 'z')) // selecionou todo dígito que não tem px na frente
+
+// Positive Lookbehind
+
+console.log('Pergunta 1, Pergunta 2, Pergunta 3, Pergunta 4, Pergunta 5'.replace(/\d(?<=Pergunta )/g, 'X'))
